@@ -1,5 +1,7 @@
 class TasksController < ApplicationController
-  def index
+  
+  def update
   end
   
 end
+

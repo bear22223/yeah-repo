@@ -1,0 +1,22 @@
+<h1><%= @user.name %>のタスク一覧</h1>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <%= link_to "タスク新規作成" , "#", class: "btn btn-lg btn-primary pull-right"%>
+        <table class="table table-hover" id="table-tasks">
+            <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>作成日</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><%= @lista.name %></td>
+                    <td>a</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
