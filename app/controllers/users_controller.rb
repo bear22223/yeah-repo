@@ -2,13 +2,12 @@ class UsersController < ApplicationController
   
   def tasks
     @user = User.find(params[:id])
-    @list = [ 
-      "タスク1",
-      "タスク2",
-      "タスク3",
-      ]
+    
+    
+    @list = ["タスク1","タスク2","タスク3"]
       
       
+     
       
        
   end

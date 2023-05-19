@@ -11,10 +11,12 @@
                 </tr>
             </thead>
             <tbody>
+                <% @list.each do |lista| %>
                 <tr>
-                    <td><%= @lista.name %></td>
-                    <td>a</td>
-                    <td></td>
+                    <td id="task-name"><%= link_to lista, "#" %></td>
+                    <td><%= "2222/22/22 22:22" %></td>
+                    <td><%= link_to "編集", "#", class: "btn btn-success" %> <%=link_to "削除", "#", class: "btn btn-danger" %></td>
+                <% end %>
                 </tr>
             </tbody>
         </table>

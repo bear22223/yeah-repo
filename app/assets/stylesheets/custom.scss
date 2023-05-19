@@ -113,8 +113,20 @@ p {
 
 
 
-// users#tasks
+// /users/1/tasks
 
+#task-name {
+    font-size: 1.8rem;
+}
+
+
+#table-tasks th {
+    vertical-align: middle
+}
+
+#table-tasks td {
+    vertical-align: middle
+}
 
 
 
