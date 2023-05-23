@@ -2,23 +2,21 @@ class UsersController < ApplicationController
   
   def tasks
     @user = User.find(params[:id])
-    
-    
-    @list = ["タスク1","タスク2","タスク3"]
-      
-      
-     
-      
-       
+    @tasks=@user.tasks
+    @taskes=@tasks.new(note_params)
+    @taskes.save
   end
+  
   
   def show
     @user = User.find(params[:id])
   end
 
+
   def new
     @user = User.new
   end
+  
   
   def create
     @user = User.new(user_params)
@@ -29,11 +27,18 @@ class UsersController < ApplicationController
     else
       render :new
     end
+    
   end
   
-  private
   
+  private
+
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
+    
+    def note_params
+      params.require(:task).permit(:note_name, :note)
+    end
+  
 end
