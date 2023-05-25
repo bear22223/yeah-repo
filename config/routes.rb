@@ -8,13 +8,11 @@ Rails.application.routes.draw do
   
   resources :users do
     member do
-      get 'tasks'
-      post 'tasks'
-      get 'tasks/new'
+      
       
     end
-    resources :tasks, only: :update
-    resources :tasks, only: :index
+    resources :tasks
+    
     
   end
 end

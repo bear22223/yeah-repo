@@ -1,18 +1,54 @@
 class TasksController < ApplicationController
   
-  def new
-    @user = User.find(params[:id])
-    @task = @user.tasks
-  end
-  
   
   def index
+    @task=Task.find(params[:user_id])
     @list = ["タスク1","タスク2","タスク3"]
+    
   end
+  
+  def new
+    @task = Task.find(params[:user_id])
+    
+  end
+  
+  
+  def create
+    @task = Task.find(params[:user_id])
+    @tasks = @task.new(:note_name, :note)
+    if @tasks.save
+      redirect_to root_url
+    end
+    
+  end
+  
+  
+  
+  # @user = User.find(params[:id])
+  #   @tasks=@user.tasks
+  #   @taskes=@tasks.new(note_params)
+  #   if@taskes.save
+  #   redirect_to "#"
+  
+  
+  
+  
+  
   
   
   def update
   end
+  
+  
+  private
+    
+    # def tasks_params
+    #   params.require(:user).permit(task: [:note_name, :note])[:task]
+    # end
+    
+    def tasks_params
+      params.require(:task).permit(:note_name, :note)
+    end
   
 end
 

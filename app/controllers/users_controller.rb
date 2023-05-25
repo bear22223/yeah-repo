@@ -1,11 +1,6 @@
 class UsersController < ApplicationController
   
-  def tasks
-    @user = User.find(params[:id])
-    @tasks=@user.tasks
-    @taskes=@tasks.new(note_params)
-    @taskes.save
-  end
+  
   
   
   def show
@@ -37,8 +32,8 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
     
-    def note_params
-      params.require(:task).permit(:note_name, :note)
-    end
+    # def note_params
+    #   params.require(:task).permit(:note_name, :note)
+    # end
   
 end
