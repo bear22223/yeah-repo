@@ -14,12 +14,12 @@ class TasksController < ApplicationController
   
   
   def create
-    @task = Task.find(params[:user_id])
-    @tasks = @task.new(:note_name, :note)
-    if @tasks.save
-      redirect_to root_url
+    user=User.find(params[:user_id])
+    tasks=user.tasks
+    tasks = tasks.new(tasks_params)
+    if tasks.save
+      redirect_to "#"
     end
-    
   end
   
   
