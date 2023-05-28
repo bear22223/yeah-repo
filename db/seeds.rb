@@ -7,3 +7,22 @@ User.create!( name: "管理者",
               admin: true)
               
               
+49.times do |n|
+  name  = Faker::Name.name
+  email = "sample-#{n+1}@email.com"
+  password = "password"
+  User.create!( name: name,
+               email: email,
+               password: password,
+               password_confirmation: password)
+end
+              
+
+  
+  50.times do |n|
+  note_name = "タスク#{n+1}"
+  Task.create!( note_name: note_name,user_id:1)
+end
+
+
+  

@@ -2,8 +2,8 @@ class TasksController < ApplicationController
   
   
   def index
-    @task=Task.find(params[:user_id])
-    @list = ["タスク1","タスク2","タスク3"]
+    @user=User.find(params[:user_id])
+    @tasks=@user.tasks
     
   end
   
