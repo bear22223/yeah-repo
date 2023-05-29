@@ -7,6 +7,10 @@ class TasksController < ApplicationController
     
   end
   
+  def show
+    
+  end
+  
   def new
     @task = Task.find(params[:user_id])
     
@@ -23,20 +27,14 @@ class TasksController < ApplicationController
   end
   
   
-  
-  # @user = User.find(params[:id])
-  #   @tasks=@user.tasks
-  #   @taskes=@tasks.new(note_params)
-  #   if@taskes.save
-  #   redirect_to "#"
-  
-  
-  
-  
+  def edit
+    
+  end
   
   
   
   def update
+    
   end
   
   

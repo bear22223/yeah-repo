@@ -13,7 +13,7 @@
             <tbody>
                 <% @tasks.each do |tasks| %>
                 <tr>
-                    <td id="task-name"><%= link_to tasks.note_name, "#" %></td>
+                    <td id="task-name"><%= link_to tasks.note_name, user_task_path(tasks, tasks) %></td>
                     <td><%= l(tasks.created_at, format: :long) %></td>
                     <td><%= link_to "編集", "#", class: "btn btn-success" %> <%=link_to "削除", "#", class: "btn btn-danger" %></td>
                 <% end %>

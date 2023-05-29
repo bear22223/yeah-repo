@@ -25,4 +25,10 @@ end
 end
 
 
+  50.times do |n|
+  note = "テスト#{n}"
+  Task.create!( note: note,user_id:1)
+end
+
+
   
