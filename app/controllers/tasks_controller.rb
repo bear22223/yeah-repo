@@ -8,7 +8,9 @@ class TasksController < ApplicationController
   end
   
   def show
-    
+    @user=User.find(params[:user_id])
+    @tasks=@user.tasks
+    @tasks_id=@tasks.find(params[:id])
   end
   
   def new
@@ -28,25 +30,25 @@ class TasksController < ApplicationController
   
   
   def edit
-    
+    @task=Task.find(params[:user_id])
   end
   
   
   
   def update
-    
+    user=User.find(params[:user_id])
+    tasks=user.tasks
+    tasks=tasks.find_by(id: params[:id])
+    tasks.update(tasks_params)
+    redirect_to "#"
   end
   
   
   private
     
-    # def tasks_params
-    #   params.require(:user).permit(task: [:note_name, :note])[:task]
-    # end
-    
     def tasks_params
       params.require(:task).permit(:note_name, :note)
     end
-  
+    
 end
 

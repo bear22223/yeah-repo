@@ -21,13 +21,9 @@ end
   
   50.times do |n|
   note_name = "タスク#{n+1}"
-  Task.create!( note_name: note_name,user_id:1)
-end
-
-
-  50.times do |n|
-  note = "テスト#{n}"
-  Task.create!( note: note,user_id:1)
+  note = "タスク詳細#{n+1}"
+  Task.create!( note_name: note_name,user_id:1,
+                note: note)
 end
 
 
