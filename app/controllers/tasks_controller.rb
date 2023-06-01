@@ -14,7 +14,8 @@ class TasksController < ApplicationController
   end
   
   def new
-    @task = Task.find(params[:user_id])
+    @user = User.find(params[:user_id])
+    @tasks=@user.tasks
     
   end
   
@@ -24,13 +25,16 @@ class TasksController < ApplicationController
     tasks=user.tasks
     tasks = tasks.new(tasks_params)
     if tasks.save
-      redirect_to "#"
+      redirect_to user_tasks_url(user)
     end
   end
   
   
   def edit
-    @task=Task.find(params[:user_id])
+    @user = User.find(params[:user_id])
+    @tasks=@user.tasks
+    @tasks_id=@tasks.find(params[:id])
+    
   end
   
   
@@ -40,7 +44,16 @@ class TasksController < ApplicationController
     tasks=user.tasks
     tasks=tasks.find_by(id: params[:id])
     tasks.update(tasks_params)
-    redirect_to "#"
+    redirect_to user_tasks_url(user)
+  end
+  
+  
+  def destroy
+    user=User.find(params[:user_id])
+    tasks=user.tasks
+    tasks_id=tasks.find(params[:id])
+    tasks_id.destroy
+    redirect_to user_tasks_url(user)
   end
   
   
