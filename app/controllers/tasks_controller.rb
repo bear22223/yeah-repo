@@ -15,17 +15,20 @@ class TasksController < ApplicationController
   
   def new
     @user = User.find(params[:user_id])
-    @tasks=@user.tasks
+    @tasks = @user.tasks
     
   end
   
   
   def create
-    user=User.find(params[:user_id])
-    tasks=user.tasks
-    tasks = tasks.new(tasks_params)
-    if tasks.save
+    @user=User.find(params[:user_id])
+    @tasks=@user.tasks
+    @tasks = @tasks.new(tasks_params)
+    if @tasks.save
+      flash[:success]="タスクを新規作成しました。"
       redirect_to user_tasks_url(user)
+    else
+      render :new
     end
   end
   
@@ -43,8 +46,10 @@ class TasksController < ApplicationController
     user=User.find(params[:user_id])
     tasks=user.tasks
     tasks=tasks.find_by(id: params[:id])
-    tasks.update(tasks_params)
-    redirect_to user_tasks_url(user)
+    if tasks.update(tasks_params)
+      flash[:success]="タスクを更新しました。"
+      redirect_to user_task_url(user, tasks)
+    end
   end
   
   
@@ -52,8 +57,10 @@ class TasksController < ApplicationController
     user=User.find(params[:user_id])
     tasks=user.tasks
     tasks_id=tasks.find(params[:id])
-    tasks_id.destroy
-    redirect_to user_tasks_url(user)
+    if tasks_id.destroy
+      flash[:success]="タスクを削除しました。"
+      redirect_to user_tasks_url(user)
+    end
   end
   
   
