@@ -137,6 +137,14 @@ p {
 
 // /users/1/tasks/1
 
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px
+}
+
+
+
 #table-task {
     table-layout: fixed;
     width: 100%
@@ -147,6 +155,8 @@ p {
     white-space: nowrap;
     text-align: center
 }
+
+
 
 /* デバッグウインドウ */
 
