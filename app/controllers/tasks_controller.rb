@@ -1,6 +1,5 @@
 class TasksController < ApplicationController
   
-  
   def index
     @user=User.find(params[:user_id])
     @tasks=@user.tasks
@@ -19,7 +18,6 @@ class TasksController < ApplicationController
     
   end
   
-  
   def create
     @user=User.find(params[:user_id])
     @tasks=@user.tasks
@@ -28,21 +26,15 @@ class TasksController < ApplicationController
       flash[:success]="タスクを新規作成しました。"
       redirect_to user_tasks_url(@user)
     else
-      
       render :new
     end
   end
   
-  
-  
   def edit
     @user = User.find(params[:user_id])
-    
     @tasks=Task.find(params[:id])
     
   end
-  
-  
   
   def update
     @user=User.find(params[:user_id])
@@ -52,29 +44,23 @@ class TasksController < ApplicationController
       flash[:success]="タスクを更新しました。"
       redirect_to user_task_url(@user, @tasks)
     else
-      @tasks_errors=@tasks.errors
       render :edit
     end
   end
   
-  
   def destroy
     user=User.find(params[:user_id])
-    tasks=user.tasks
-    tasks_id=tasks.find(params[:id])
-    if tasks_id.destroy
+    task=Task.find(params[:id])
+    task.destroy
       flash[:success]="タスクを削除しました。"
       redirect_to user_tasks_url(user)
-    end
   end
-  
   
   private
     
     def tasks_params
       params.require(:task).permit(:note_name, :note)
     end
-    
 end
 
 
