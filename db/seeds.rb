@@ -19,10 +19,24 @@ end
               
 
   
-  10.times do |n|
+25.times do |n|
   note_name = "タスク#{n+1}"
   note = "タスク詳細#{n+1}"
   Task.create!( note_name: note_name,user_id:1,
+                note: note)
+end
+
+25.times do |n|
+  note_name = "タスク#{n+1}"
+  note = "タスク詳細#{n+1}"
+  Task.create!( note_name: note_name,user_id:2,
+                note: note)
+end
+
+25.times do |n|
+  note_name = "タスク#{n+1}"
+  note = "タスク詳細#{n+1}"
+  Task.create!( note_name: note_name,user_id:3,
                 note: note)
 end
 

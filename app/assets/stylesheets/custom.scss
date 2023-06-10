@@ -80,6 +80,11 @@ p {
     font-weight: bold;
 }
 
+.dropdown-header {
+    background-color: rgba(200,200,200,0.5);
+    font-weight: bold
+}
+
 
 
 .header-list:hover {
@@ -94,7 +99,7 @@ p {
 }
 
 .dropdown-menu {
-  background-color: teal;
+  background-color: #fff;
 }
 
 
@@ -140,14 +145,15 @@ p {
 .table {
     width: 100%;
     max-width: 100%;
-    margin-bottom: 20px
+    margin-bottom: 20px;
+    margin: auto
 }
 
 
 
 #table-task {
     table-layout: fixed;
-    width: 100%
+    width: 60%
 }
 
 #table-task th {
@@ -156,6 +162,22 @@ p {
     text-align: center
 }
 
+
+
+
+// /users
+
+.label-user-division {
+    margin-left: 5px
+}
+
+#table-users td {
+    vertical-align: middle
+}
+
+.pull-right {
+    float: right !important
+}
 
 
 /* デバッグウインドウ */
