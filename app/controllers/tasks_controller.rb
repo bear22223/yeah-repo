@@ -1,10 +1,11 @@
 class TasksController < ApplicationController
-  before_action :logged_in_user, only: [:index, :show, :new, :create, :update, :edit, :destroy]
-  before_action :correct_user, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  # # before_action :set_user, only: [:index, :show, :new, :create, :update, :edit, :destroy]
+  # before_action :logged_in_user, only: [:index, :show, :new, :create, :update, :edit, :destroy]
+  # before_action :correct_user, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   
   def index
     @user=User.find(params[:user_id])
-    @tasks=@user.tasks
+    @tasks=@user.tasks.order(created_at: :desc)
     
   end
   
