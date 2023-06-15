@@ -17,7 +17,7 @@
                     <td><%= l(tasks.created_at, format: :long) %></td>
                     <td><%= link_to "編集", edit_user_task_path(@user, tasks), class: "btn btn-success" %> 
                         <%=link_to "削除", user_task_path(@user, tasks), method: :delete, class: "btn btn-danger", 
-                        data: { confirm: "を削除します。よろしいですか？" }, title: '削除確認' %>
+                        data: { confirm: "#{tasks.note_name}を削除します。よろしいですか？" }, title: '削除確認' %>
                     </td>
                 <% end %>
                 </tr>
