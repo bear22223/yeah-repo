@@ -24,7 +24,14 @@ class ApplicationController < ActionController::Base
   end
   
   def correct_user
-    redirect_to root_url unless current_user? @user
+    if params[:id] 
+      if !current_user? @user
+      flash[:danger] = "権限がありません。"
+      redirect_to user_tasks_path(current_user) 
+      end
+    else
+      redirect_to root_url unless current_user? @user
+    end
   end
   
   def admin_or_correct_user

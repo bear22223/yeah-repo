@@ -34,10 +34,6 @@ class TasksController < ApplicationController
   def edit
     @user = User.find(params[:user_id])
     @tasks=Task.find(params[:id])
-    # if  !current_user? @user
-    #   flash[:danger] = "権限がありません。"
-    #   redirect_to user_tasks_path(current_user)
-    # end
   end  
   
   def update
