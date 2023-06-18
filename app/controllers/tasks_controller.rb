@@ -1,12 +1,11 @@
 class TasksController < ApplicationController
-  # # before_action :set_user, only: [:index, :show, :new, :create, :update, :edit, :destroy]
-  # before_action :logged_in_user, only: [:index, :show, :new, :create, :update, :edit, :destroy]
-  # before_action :correct_user, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  before_action :set_user, only: [:index, :show, :new, :create, :update, :edit, :destroy]
+  before_action :logged_in_user, only: [:index, :show, :new, :create, :update, :edit, :destroy]
+  before_action :correct_user, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   
   def index
     @user=User.find(params[:user_id])
     @tasks=@user.tasks.order(created_at: :desc)
-    
   end
   
   def show
@@ -18,7 +17,6 @@ class TasksController < ApplicationController
   def new
     @user = User.find(params[:user_id])
     @tasks = Task.new
-    
   end
   
   def create
@@ -36,8 +34,11 @@ class TasksController < ApplicationController
   def edit
     @user = User.find(params[:user_id])
     @tasks=Task.find(params[:id])
-    
-  end
+    # if  !current_user? @user
+    #   flash[:danger] = "権限がありません。"
+    #   redirect_to user_tasks_path(current_user)
+    # end
+  end  
   
   def update
     @user=User.find(params[:user_id])

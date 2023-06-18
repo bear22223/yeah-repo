@@ -4,9 +4,10 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "トップ", root_path, class: "header-list" %></li>
+        <% if logged_in? && current_user %>
         <% if logged_in? && current_user.admin? %>
           <li><%=link_to "利用者一覧", users_path, class: "header-list"%></li>
-        
+        <% end %>
           <li><%= link_to "タスク作成", new_user_task_path(current_user), class: "header-list" %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle header-list" data-toggle="dropdown" id= "dropdown-ti">
@@ -22,7 +23,6 @@
               <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
             </ul>
           </li>
-        
         <% else %>
           <li><%= link_to "ログイン", login_path, class: "header-list" %></li>
         <% end %>
